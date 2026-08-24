@@ -1,13 +1,16 @@
 import axios from 'axios';
 import { Platform } from 'react-native';
 
-// In Expo Web, localhost works directly. On native mobile/emulators, can point to LAN IP or localhost
+// Base URL dynamically resolves backend API
 const getBaseUrl = () => {
-  if (Platform.OS === 'web') {
-    return 'http://localhost:5000/api';
+  if (typeof window !== 'undefined' && window.location) {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return 'http://localhost:5000/api';
+    }
+    // In production duckdns deployment
+    return 'https://logicwixmapworkerapi.duckdns.org/api';
   }
-  // For android emulator: 10.0.2.2, or default localhost
-  return 'http://localhost:5000/api';
+  return 'https://logicwixmapworkerapi.duckdns.org/api';
 };
 
 export const API_BASE_URL = getBaseUrl();
