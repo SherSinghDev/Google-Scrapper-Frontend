@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "LeadMap - Google Maps Scraper",
+    "slug": "leadmap",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
